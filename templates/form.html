@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predicción Titanic</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="mb-4">¿Sobrevivirías al Titanic?</h1>
+
+    <!-- Resultado de la predicción -->
+    {% if result %}
+        <div class="alert alert-{{ 'success' if result.prediction == 1 else 'danger' }}" role="alert">
+            <h4 class="alert-heading">{{ result.message }}</h4>
+            <p>Probabilidad de sobrevivir: <strong>{{ result.probability }}%</strong></p>
+        </div>
+    {% endif %}
+
+    <!-- Formulario -->
+    <form method="post" class="row g-3 bg-white p-4 shadow rounded">
+        <div class="col-md-4">
+            <label class="form-label">Edad</label>
+            <input type="number" step="0.1" name="age" class="form-control" required>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Tamaño familiar</label>
+            <input type="number" name="family_size" class="form-control" required>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Tarifa (0-600 usd)</label>
+            <input type="number" step="0.01" name="fare" class="form-control" max="600" min="0" required>
+        </div>
+
+
+        <div class="col-md-4">
+            <label class="form-label">Clase (1, 2 o 3)</label>
+            <input type="number" name="pclass" class="form-control"  max="3" min="1" required>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Sexo</label>
+            <select name="sex" class="form-select">
+                <option value="male">Hombre</option>
+                <option value="female">Mujer</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Puerto de embarque</label>
+            <select name="embarked" class="form-select">
+                <option value="S">Southampton</option>
+                <option value="C">Cherbourg</option>
+                <option value="Q">Queenstown</option>
+            </select>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Predecir</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
