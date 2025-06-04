@@ -33,7 +33,7 @@ Aplicación web con **FastAPI** que predice si un pasajero del Titanic habría s
 ---
 
 ## 📁 Estructura del proyecto
-
+```
 .
 ├── app.py # Aplicación FastAPI
 ├── model/
@@ -43,7 +43,7 @@ Aplicación web con **FastAPI** que predice si un pasajero del Titanic habría s
 ├── requirements.txt # Dependencias
 ├── README.md
 └── .gitignore
-
+```
 ---
 
 ## 🖥️ Cómo correr localmente
